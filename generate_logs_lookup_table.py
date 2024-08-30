@@ -21,7 +21,6 @@ def generate_flow_log_entry():
     action = random.choice(["ACCEPT", "REJECT"])
     log_status = "OK"
 
-    # Format the flow log entry (this is the core of version 2)
     flow_log_entry = (
         f"{version} {account_id} {interface_id} {srcaddr} {dstaddr} "
         f"{srcport} {dstport} {protocol} {packets} {bytes_transferred} "
