@@ -29,19 +29,19 @@
 2. `port_protocols_counts.csv`: A breakdown of how many times each port/protocol combination appeared.
 
 ### Example Output
-Tag,Count 
-sv_P2,1 
-sv_P1,2 
-sv_P4,1 
-email,3 
-Untagged,9 
+Tag,Count\
+sv_P2,1\
+sv_P1,2\
+sv_P4,1\
+email,3\
+Untagged,9
 
-Port,Protocol,Count 
-22,tcp,1 
-23,tcp,1 
-25,tcp,1 
-110,tcp,1 
-143,tcp,1 
+Port,Protocol,Count\
+22,tcp,1\
+23,tcp,1\
+25,tcp,1\
+110,tcp,1\
+143,tcp,1
 
 ## Testing
 
