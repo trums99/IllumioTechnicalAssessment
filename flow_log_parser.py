@@ -64,6 +64,9 @@ class FlowLogParser:
 
 
     def write_tag_counts(self, tag_counts):
+        """
+        writes tag counts to file
+        """
         with open(self.tag_counts_output_file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Tag", "Count"])
@@ -72,6 +75,9 @@ class FlowLogParser:
 
 
     def write_port_protocol_counts(self, port_protocol_counts):
+        """
+        writes port protocol counts to file
+        """
         with open(self.port_protocol_counts_output_file_path, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Port", "Protocol", "Count"])
@@ -80,7 +86,6 @@ class FlowLogParser:
 
 
     def run(self):
-        """Runs the full process of loading the lookup table, processing logs, and writing the output."""
         self.parse_protocol_numbers()
         self.parse_lookup_table()
         tag_count, port_protocol_count = self.parse_flow_logs()

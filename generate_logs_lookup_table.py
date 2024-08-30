@@ -37,6 +37,7 @@ def generate_flow_logs(log_file_path, num_entries):
             file.write(generate_flow_log_entry())
         return 
 
+
 def generate_lookup_table(lookup_table_path, protocol_numbers_map, num_entries):
     with open(lookup_table_path, 'w', newline='') as file:
         file.write("dstport,protocol,tag\n")
@@ -45,6 +46,7 @@ def generate_lookup_table(lookup_table_path, protocol_numbers_map, num_entries):
             protocol_number = random.randint(0, 145)
             file.write("{},{},{}\n".format(port, protocol_numbers_map.get(str(protocol_number), 'unknown'), \
                         random.choice(["sv_P1", "sv_P2", "sv_P3", "sv_P4", "sv_P5", "email"])))
+
 
 if __name__ == "__main__":
     log_file_path = 'flow_logs_big.txt'
