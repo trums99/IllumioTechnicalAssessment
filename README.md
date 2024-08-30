@@ -3,7 +3,13 @@
 `flow_log_parser.py` is a Python script designed to process Amazon VPC flow logs and generate reports based on the logs.
 
 ## Assumptions and Limitations
-
+- **Log Format:** Only supports default log format (https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html)
+- **Log Version:** Only Version 2 is supported
+- **Lookup Table Format:** Only supports a csv file with three columns: `dstport`, `protocol` and `tag`. Values must be strings e.g. `tcp`,`udp`, `icmp`.
+- **Log Size:** 10 MB or less is tested and supported
+- **Lookup Table Size:** 10000 mappings or less is tested and supported
+- **Case Insensitivity:** Parsing is case-insensitive, `TCP` is the same as `tcp`
+- **Protocol Numbers:** The protocol numbers mapping based on (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 
 ## Requirements
 - Python 3.x 
@@ -25,8 +31,8 @@
    - The program will generate `tag_counts.csv` and `port_protocols_counts.csv` as output.
 
 ### Output
-1. `tag_counts.csv`: A summary of how many times each tag appeared in the logs.
-2. `port_protocols_counts.csv`: A breakdown of how many times each port/protocol combination appeared.
+   - `tag_counts.csv`: A summary of how many times each tag appeared in the logs.
+   - `port_protocols_counts.csv`: A breakdown of how many times each port/protocol combination appeared.
 
 ### Example Output
 Tag,Count\
@@ -44,6 +50,21 @@ Port,Protocol,Count\
 143,tcp,1
 
 ## Testing
+- Tested with `flow_logs.txt` with size of 10 MB and `lookup_table.csv` with 10000 mappings
+- These can be randomly generated with `generate_logs_lookup_table.py`. Just run in the terminal using this command: `generate_logs_lookup_table.py`.
 
 ### Unit Tests
+Tests covered:
+- Parsing the `protocol_numbers.csv` correctly
+- Parsing the `lookup_table.csv` correctly
+- Parsing the `flow_logs.txt` correctly
+- Writing the output correctly to `tag_counts.csv`
+- - Writing the output correctly to `port_protocols_counts.csv`
 
+### How to Run the Unit Tests
+1. Ensure the framework `unittest` is installed
+2. Ensure `test_flow_log_parser.py` is in the same directory as all the previous other files
+3. Run the tests:
+   ```
+   python3 test_flow_log_parser.py
+   ```
