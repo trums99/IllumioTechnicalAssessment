@@ -88,7 +88,6 @@ class FlowLogParser:
     def run(self):
         self.parse_protocol_numbers()
         self.parse_lookup_table()
-        print(self.lookup_table)
         tag_count, port_protocol_count = self.parse_flow_logs()
         self.write_tag_counts(tag_count)
         self.write_port_protocol_counts(port_protocol_count)
