@@ -59,7 +59,7 @@ Tests covered:
 - Parsing the `lookup_table.csv` correctly
 - Parsing the `flow_logs.txt` correctly
 - Writing the output correctly to `tag_counts.csv`
-- - Writing the output correctly to `port_protocols_counts.csv`
+- Writing the output correctly to `port_protocols_counts.csv`
 
 ### How to Run the Unit Tests
 1. Ensure the framework `unittest` is installed
